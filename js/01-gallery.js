@@ -29,7 +29,7 @@ if(!imageEl) {return}
 
     
 instance.show();
-if(document.lastChild('.basicLightbox__placeholder')) {return}
+
 document.onkeydown = function(evt) {
     evt = evt || window.event;
     if (evt.key === "Escape" || evt.key === "Esc") {
