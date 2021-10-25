@@ -25,15 +25,18 @@ function modalWindow(evt) {
     const imageEl = evt.target.classList.contains('gallery__image');
 if(!imageEl) {return}
     const image = evt.target.getAttribute('data-source')
-    const instance = basicLightbox.create(`<img src="${image}" width="800" height="600">`)
-instance.show();
+    const instance = basicLightbox.create(`<div class = "modal"><img src="${image}" width="800" height="600"></div>`);
 
+    
+instance.show();
+if(document.lastChild('.basicLightbox__placeholder')) {return}
 document.onkeydown = function(evt) {
     evt = evt || window.event;
     if (evt.key === "Escape" || evt.key === "Esc") {
         instance.close();   
     }
 }
+document.querySelector('img').removeEventListener('click');
 }
 
 createGallery(galleryItems);
